@@ -54,11 +54,11 @@ export const logoutUser = async (req, res) => {
 
   if (sessionId) {
     await Session.deleteOne({ _id: sessionId });
-
-    res.clearCookie('sessionId');
-    res.clearCookie('accessToken');
-    res.clearCookie('refreshToken');
   }
+
+  res.clearCookie('sessionId');
+  res.clearCookie('accessToken');
+  res.clearCookie('refreshToken');
 
   res.status(204).send();
 };
